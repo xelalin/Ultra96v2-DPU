@@ -1,0 +1,24 @@
+&amba{
+	dpu{
+	    #address-cells = <1>;
+    	    #size-cells = <1>;
+    	    compatible = "xilinx,dpu";
+    	    base-addr = <0x8F000000>;     //CHANGE THIS ACCORDING TO YOUR DESIGN
+
+	    dpucore {
+	        compatible = "xilinx,dpucore";
+	        interrupt-parent = <&gic>;
+	        interrupts = <0x0 0x59 0x4 >; //CHANGE THIS ACCORDING TO YOUR DESIGN
+	        core-num = <0x1>; //CHANGE THIS ACCORDING TO YOUR DESIGN
+	    };
+
+/* Only enable this if softmax is added 
+	    softmax { 
+	        compatible = "xilinx,smfc";
+	        interrupt-parent = <&gic>;
+	        interrupts = <0x0 110 0x1>;
+	        core-num = <0x1>;
+	    };
+*/
+	};
+};
